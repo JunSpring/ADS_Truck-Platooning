@@ -9,10 +9,7 @@ In this project, you will build an autonomous truck platooning system based on t
 The objective of this project is to develop a truck platooning system with at least three trucks that can maintain a constant gap between them while maintaining the platoon within a lane.
 </br>
 
-<video src="https://github.com/SEA-ME/ADS_Truck-Platooning/assets/700359/05edcc03-3703-4f44-b040-1c1f7c7989cf"></video>
-
-
-
+![ezgif-7-2773c58853](https://github.com/SEA-ME/ADS_Truck-Platooning/assets/700359/c7139d48-6a11-4d45-b5db-3c6fce4ec8b1)
 
 
 # Background Information
