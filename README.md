@@ -9,7 +9,16 @@ In this project, you will build an autonomous truck platooning system based on t
 The objective of this project is to develop a truck platooning system with at least three trucks that can maintain a constant gap between them while maintaining the platoon within a lane.
 </br>
 
+<video src="https://github.com/SEA-ME/ADS_Truck-Platooning/assets/700359/05edcc03-3703-4f44-b040-1c1f7c7989cf"></video>
+
+
+
+
+
 # Background Information
+
+
+
 
 You can use the CARLA simulator and ROS 2 bridge software at https://github.com/AveesLab/carla-virtual-platoon. The repository contains information to deploy your own CARLA simulation environment with trucks that can be controlled by ROS 2. The detailed description for the installation and test can be found at the repository.
 </br>
