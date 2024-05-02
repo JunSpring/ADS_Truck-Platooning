@@ -2,7 +2,7 @@
 
 # Introduction
 
-In this project, you will develop a truck platooning system based on the techniques developed by the previous ADS projects (i.e., lane detection and object detection). The CARLA autonomous driving simulator is used, where we can deploy semi-trailer trucks equipped with sensors and actuators. You can deploy a number of such trucks in the virtual world. Each truck is equipped with a front camera and a front radar. The camera can be used to detect lanes and drivable areas. The radar can detect preceding vehicles including the preceding truck in the platoon. Each truck can be controlled by accelerating and braking as well as steering. 
+In this project, you will develop a truck platooning system based on the techniques from the previous ADS projects (i.e., lane detection and object detection). The CARLA autonomous driving simulator is used, where we can deploy semi-trailer trucks equipped with sensors and actuators. You can deploy a number of such trucks in the virtual world. Each truck is equipped with a front camera and a front radar. The camera can be used to detect lanes and drivable areas. The radar can detect preceding vehicles including the preceding truck in the platoon. Each truck can be controlled by accelerating and braking as well as steering. 
 
 The objective of this project is to develop a truck platooning system with at least three trucks that can maintain a constant gap between them while maintaining the platoon within a lane based on the CARLA simulator, as in the following:
 
