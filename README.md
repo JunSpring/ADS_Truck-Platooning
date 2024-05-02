@@ -1,28 +1,20 @@
 # ADS Project - Truck Platooning using CARLA Simulator
 
-
-
 # Introduction
 
-In this project, you will build an autonomous truck platooning system based on techniques developed by the previous ADS projects (i.e., lane detection and object detection). The CARLA autonomous driving simulator is used with a slight modification to support semi-trailer trucks. You can deploy trucks as many as you want, and each truck is equipped with a front camera and a front radar. The camera can be utilized to detect lanes and drivable areas, while the radar can detect preceding vehicles. Also, each truck can be controlled by accelerating and braking as well as steering. The sensors and actuators can be reached through a ROS 2 network.
+In this project, you will develop a truck platooning system based on the techniques developed by the previous ADS projects (i.e., lane detection and object detection). The CARLA autonomous driving simulator is used, where we can deploy semi-trailer trucks equipped with sensors and actuators. You can deploy a number of such trucks in the virtual world. Each truck is equipped with a front camera and a front radar. The camera can be used to detect lanes and drivable areas. The radar can detect preceding vehicles including the preceding truck in the platoon. Each truck can be controlled by accelerating and braking as well as steering. 
 
-The objective of this project is to develop a truck platooning system with at least three trucks that can maintain a constant gap between them while maintaining the platoon within a lane.
-</br>
+The objective of this project is to develop a truck platooning system with at least three trucks that can maintain a constant gap between them while maintaining the platoon within a lane based on the CARLA simulator, as in the following:
 
 ![ezgif-7-2773c58853](https://github.com/SEA-ME/ADS_Truck-Platooning/assets/700359/c7139d48-6a11-4d45-b5db-3c6fce4ec8b1)
 
-
 # Background Information
 
-
-
-
-You can use the CARLA simulator and ROS 2 bridge software at https://github.com/AveesLab/carla-virtual-platoon. The repository contains information to deploy your own CARLA simulation environment with trucks that can be controlled by ROS 2. The detailed description for the installation and test can be found at the repository.
-</br>
+The baseline software including the CARLA simulator and the ROS 2 bridge can be obtained by following the instruction at https://github.com/AveesLab/carla-virtual-platoon. Then you can have a working simulation environment with trucks that can be controlled by ROS 2. The repository provides a ROS 2 bridge, by which developers can easily develop their perception, decision, and control algorithms.
 
 # Project Goals & Objectives
 
-The goals and objectives of the Truck Platooning using CARLA Simulator project are as follows:
+The goals and objectives of the project are as follows:
 
 1. To deploy the CARLA simulator on your PC and test the interface for receiving sensor data and controlling the trucks.
 2. To develop the lateral control algorithm, which can be developed by either following the lane or following the preceding truck.
