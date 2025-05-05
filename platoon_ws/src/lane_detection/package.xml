@@ -3,9 +3,13 @@
 <package format="3">
   <name>lane_detection</name>
   <version>1.0.0</version>
-  <description>BFMC lane detection package</description>
-  <maintainer email="wjdwnsqja08@gmail.com">root</maintainer>
+  <description>Lane Detection</description>
+  <maintainer email="wjdwnsqja08@gmail.com">JunSpring</maintainer>
   <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
