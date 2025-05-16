@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from .class_image_processor import ImageProcessor
+from .pixel_to_world import convert_pixel_to_world
 
 from sensor_msgs.msg import Image
 
@@ -18,16 +19,11 @@ import cv2
 
 class LaneDetection(Node):
     def __init__(self, truck_id):
-        
-        # self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        # self.out = cv2.VideoWriter('output.avi', self.fourcc, 15, (640, 480))
-        
         self.truck_id = truck_id
         node_name = f'truck{self.truck_id}_lane_detection'
         super().__init__(node_name)
         
         self.image_processor = ImageProcessor()
-
 
         topic_name = f'/truck{self.truck_id}/front_camera'
         self.image_sub = self.create_subscription(
@@ -46,23 +42,10 @@ class LaneDetection(Node):
     def img_callback(self, msg):
         try:
             self.image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            # self.out.write(self.image)
             middle_points = self.image_processor.frame_processor(self.image)
 
-            # FOR LANE FOLLOWER!!!!
-            relative_points = middle_points
-
-            # height, width, channels = self.image.shape
-            # relative_points = self.image_processor.calculate_relative_path(middle_points, height, width)
-            # print(f"Middle Points : {relative_points}")
-            # print(f"Height: {height}, Width: {width}, Channels: {channels}")
-            # PUBLISH HERE
-            
-            
+            relative_points = middle_points            
             self.publish_path(relative_points)
-
-            # cv2.imshow(f'truck {self.truck_id} image', self.image)
-            # cv2.waitKey(1)
 
         except CvBridgeError as e:
             print(e)
@@ -81,7 +64,6 @@ class LaneDetection(Node):
             pose_stamped.pose.position.x = float(point[0])
             pose_stamped.pose.position.y = float(point[1])
             pose_stamped.pose.position.z = 0.0
-            # pose_stamped.pose.orientation = self.yaw_to_quaternion(point[2])
             path_msg.poses.append(pose_stamped)
 
         self.path_publisher.publish(path_msg)
@@ -92,14 +74,8 @@ class LaneDetection(Node):
         quaternion.x = 0.0
         quaternion.y = 0.0
         quaternion.z = math.sin(yaw / 2.0)
+
         return quaternion
-    
-    # def destroy_node(self):
-    #     super().destroy_node()
-    #     self.get_logger().info("releasing video")
-    #     # finish the video writing.
-    #     if self.out:
-    #         self.out.release()
             
 def main(args=None):
     rclpy.init(args=args)
