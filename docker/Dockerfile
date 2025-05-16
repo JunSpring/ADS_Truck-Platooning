@@ -40,15 +40,15 @@ RUN pip install --no-cache-dir setuptools && \
     pip install --no-cache-dir distro && \
     pip3 install --no-cache-dir distro && \
     pip install --no-cache-dir wheel && \
-    pip3 install --no-cache-dir wheel auditwheel
+    pip3 install --no-cache-dir wheel auditwheel && \
+    pip3 install --no-cache-dir pygame
 
 # ROS 2 환경 설정
 SHELL ["/bin/bash", "-c"]
 RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
 
 # 워크스페이스 생성
-WORKDIR /platoon_ws
-RUN /bin/bash -c "source /opt/ros/galactic/setup.bash && cd /platoon_ws && colcon build"
+WORKDIR /ADS_Truck-Platooning
 
 # 기본 실행 셸
 CMD ["bash"]
