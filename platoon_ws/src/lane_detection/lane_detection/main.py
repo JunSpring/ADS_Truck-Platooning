@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from .class_image_processor import ImageProcessor
-from .pixel_to_world import convert_pixel_to_world
+from .cam_pixel_world_transform import convert_pixel_to_world
 
 from sensor_msgs.msg import Image
 
