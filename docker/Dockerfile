@@ -45,7 +45,8 @@ RUN pip install --no-cache-dir setuptools && \
 
 # ROS 2 환경 설정
 SHELL ["/bin/bash", "-c"]
-RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc
+RUN echo "source /opt/ros/galactic/setup.bash" >> ~/.bashrc && \
+    echo "export ROS_DOMAIN_ID=0" >> ~/.bashrc
 
 # 워크스페이스 생성
 WORKDIR /ADS_Truck-Platooning
