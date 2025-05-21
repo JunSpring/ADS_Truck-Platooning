@@ -9,8 +9,8 @@ class ImageProcessor():
         # self.warp_parameters = [(274, 0), (0, 480), (366, 0), (640, 480)]
         # self.warp_parameters = [(258, 28), (0, 480), (382, 28), (640, 480)]
         # self.warp_parameters = [(250, 42), (0, 480), (390 , 42), (640, 480)]
-        self.warp_parameters = [(243, 55), (0, 480), (397, 55), (640, 480)]
-        # self.warp_parameters = [(269, 55), (110, 480), (371, 55), (530, 480)]
+        # self.warp_parameters = [(243, 55), (0, 480), (397, 55), (640, 480)]
+        self.warp_parameters = [(269, 55), (110, 480), (371, 55), (530, 480)]
         # self.warp_parameters = [(211, 110), (0, 480), (429, 110), (640, 480)]
         # self.warp_parameters = [(249, 110), (110, 480), (391, 110), (530, 480)]
         # self.warp_parameters = [(149, 220), (0, 480), (491, 220), (640, 480)]
@@ -19,29 +19,29 @@ class ImageProcessor():
         self.hsv_values = (0, 0, 160) #(0, 0, 160)
 
     def frame_processor(self, image):
-        cv.imshow('Original Image', image)
+        # cv.imshow('Original Image', image)
 
         hsv = cv.cvtColor(image, cv.COLOR_BGR2HSV)
         binary_color = cv.inRange(hsv, self.hsv_values, (180, 255, 255))
-        cv.imshow('HSV Image', binary_color)
+        # cv.imshow('HSV Image', binary_color)
 
         gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-        cv.imshow('Gray Image', gray)
+        # cv.imshow('Gray Image', gray)
 
         blur = cv.GaussianBlur(gray, (5, 5), 0)
-        cv.imshow('Blur Image', blur)
+        # cv.imshow('Blur Image', blur)
 
         edges = cv.Canny(blur, 50, 150)
         contours, _ = cv.findContours(edges, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE)
         cv.drawContours(edges, contours, -1, (255), 5)
-        cv.imshow('Edges Image', edges)
+        # cv.imshow('Edges Image', edges)
 
         binary = cv.bitwise_and(binary_color, edges)
-        cv.imshow('Filtered Image', binary)
+        # cv.imshow('Filtered Image', binary)
 
         warped_image, M = self.warp_image(binary)
         M_inv = np.linalg.inv(M) 
-        cv.imshow('Warp Image', warped_image)
+        # cv.imshow('Warp Image', warped_image)
 
         # centers, dbg = self.sliding_window_dual(warped_image, nwindows=16, draw=True)
         centers, dbg = self.sliding_window_dual(warped_image, nwindows=16, draw=True)
@@ -139,9 +139,9 @@ class ImageProcessor():
             if good_right.size > minpix:  rightx_cur = int(np.mean(nz_x[good_right]))
 
             # 중앙점 작업
-            # param = 300
+            param = 300
             # param = 190
-            param = 200
+            # param = 200
             if good_left.size > minpix and good_right.size > minpix:
                 center_x = (leftx_cur + rightx_cur) // 2
                 center_y = (win_y_low + win_y_high) // 2
