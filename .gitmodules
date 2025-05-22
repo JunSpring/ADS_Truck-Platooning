@@ -1,3 +1,4 @@
 [submodule "platoon_ws/src/v_platoon"]
 	path = platoon_ws/src/v_platoon
 	url = https://github.com/ADS-Truck-Platooning/v-platoon.git
+	branch = main
